@@ -1,0 +1,533 @@
+#:import Window kivy.core.window.Window
+#:import datetime datetime.datetime
+#:import float kivymd.utils.ffloat
+#:set now datetime.now()
+#:set max_height Window.size[1] - dp(100)
+#:set max_width Window.size[0] - dp(100)
+
+
+<BubbleListItem>:
+    text: 'None' if not root.bubble else root.bubble.text
+
+    IconLeftWidgetWithoutTouch:
+        icon: "circle"
+        theme_text_color: 'Custom'
+        icon_color: [0, 0, 0, 0] if not root.bubble else root.bubble.color
+
+
+<DateTimeFields>:
+    size_hint: 1, None
+    height: dp(60)
+    spacing: dp(5)
+    disabled: False
+    MDTextField:
+        id: year
+        hint_text: 'YYYY'
+        text: str(now.year)
+        input_filter: 'int'
+#        disabled: root.disabled
+        size_hint: None, 1
+        width: dp(40)
+        next: lambda x: root.invalid_time(self, month)
+
+    MDLabel:
+        text: '/'
+        size_hint: None, 1
+        font_size: sp(25)
+        width: dp(6)
+
+    MDTextField:
+        id: month
+        hint_text: 'MM'
+        text: str(now.month)
+        input_filter: 'int'
+#        disabled: not root.disabled
+        size_hint: None, 1
+        width: dp(21)
+        next: lambda x: root.invalid_time(self, day)
+
+    MDLabel:
+        text: '/'
+        size_hint: None, 1
+        font_size: sp(25)
+        width: dp(6)
+
+    MDTextField:
+        id: day
+        hint_text: 'DD'
+        text: str(now.day)
+        input_filter: 'int'
+#        disabled: not root.disabled
+        size_hint: None, 1
+        width: dp(21)
+        next: lambda x: root.invalid_time(self, hour)
+
+    MDLabel:
+        text: '  '
+        size_hint: None, 1
+        font_size: sp(25)
+        width: dp(10)
+
+    MDTextField:
+        id: hour
+        hint_text: 'hh'
+        text: str(now.hour if now.hour <= 12 else now.hour - 12)
+        input_filter: 'int'
+#        disabled: not root.disabled
+        size_hint: None, 1
+        width: dp(21)
+        next: lambda x: root.invalid_time(self, minute)
+
+    MDLabel:
+        text: ':'
+        size_hint: None, 1
+        font_size: sp(25)
+        width: dp(6)
+
+    MDTextField:
+        id: minute
+        hint_text: 'mm'
+        text: str(now.minute)
+        input_filter: 'int'
+#        disabled: not root.disabled
+        size_hint: None, 1
+        width: dp(21)
+        next: lambda x: root.invalid_time(self, None)
+
+    MDFlatButton:
+        id: am_pm
+        text: 'AM' if now.hour <= 12 else 'PM'
+        _min_width: dp(25)
+#        disabled: not root.disabled
+        size_hint: None, .5
+        width: dp(15)
+        pos_hint: {'center_y': .5}
+        on_release:
+            self.text = 'PM' if self.text == 'AM' else 'AM'
+            next: lambda x: root.invalid_time(hour, None)
+            next: lambda x: root.invalid_time(self, minute)
+
+
+<BubbleEditor>:
+    size_hint: 1, None
+    size: (dp(58) * 4)+ dp(15), max_height if box.height > max_height else box.height
+#    bar_inactive_color: 0,0,0,0
+#    bar_color: 0,0,0,0
+    MDBoxLayout:
+        id: box
+        size_hint: 1, 1
+        adaptive_height: True
+        orientation: "vertical"
+        on_height:
+            if root.dialog: root.dialog.ids._front_layer.y += 1
+        MDBoxLayout:
+            size_hint: 1, None
+            adaptive_height: True
+            orientation: 'vertical'
+            padding: [dp(10), dp(10), dp(10), dp(10)]
+            MDTextField:
+                id: text
+                text: ''  # root.backup_bubble['text'] if 'text' in root.backup_bubble.keys() else ''
+                hint_text: 'Bubble Content'
+                size_hint: 1, None
+                height: dp(30)
+                on_text:
+                    if root.bubble: root.bubble.text = self.text
+                next: goal if not sub_bubble_dependent.active else None
+            MDBoxLayout:
+                size_hint: 1, None
+                height: dp(30)
+                spacing: dp(10)
+                MDCheckbox:
+                    id: sub_bubble_dependent
+                    size_hint: None, 1
+                    width: dp(20)
+                    pos_hint: {'center_y': .5}
+                    active: root.sub_bubble_dependent if not root.bubble else root.bubble.sub_bubble_dependent
+                    on_active:
+                        if root.bubble: root.bubble.sub_bubble_dependent = args[1]
+                MDLabel:
+                    text: 'Sub-Bubbles Dependent'
+                    pos_hint: {'center_y': .5}
+                    font_style: 'Caption'
+
+                MDCheckbox:
+                    id: sub_sum
+                    size_hint: None, 1
+                    width: dp(20)
+                    pos_hint: {'center_y': .5}
+                    disabled: not sub_bubble_dependent.active
+                    active: root.sub_sum if not root.bubble else root.bubble.sub_sum
+                    on_active:
+                        if root.bubble: root.bubble.sub_sum = args[1]
+
+                MDLabel:
+                    text: 'Sum Progress Values'
+                    pos_hint: {'center_y': .5}
+                    font_style: 'Caption'
+
+            MDBoxLayout:
+                size_hint: 1, None
+                height: dp(60)
+                spacing: dp(10)
+                MDTextField:
+                    id: goal
+                    hint_text: 'Goal'
+                    text: '1' if not root.bubble else str(root.bubble.goal)
+                    input_filter: 'float'
+                    disabled: sub_bubble_dependent.active
+                    next: step
+                    on_focus: root.reasonable_step()
+                    on_text:
+                        if root.bubble and self.text: root.bubble.goal = float(self.text)
+                MDTextField:
+                    id: step
+                    hint_text: 'Step'
+                    text: '1' if not root.bubble else str(root.bubble.step)
+                    input_filter: 'float'
+                    disabled: sub_bubble_dependent.active
+                    next: steps
+                    on_focus: root.reasonable_step()
+                    on_text:
+                        if root.bubble and self.text: root.bubble.step = float(self.text)
+                MDTextField:
+                    id: steps
+                    hint_text: 'Steps'
+                    text: str(int(float(goal.text or "10") / (float(step.text or "1") or 1)))
+                    input_filter: 'int'
+                    disabled: sub_bubble_dependent.active
+                    on_focus: root.steps()
+
+            MDBoxLayout:
+                size_hint: 1, None
+                height: dp(30)
+                spacing: dp(10)
+                MDLabel:
+                    height: dp(30)
+                    text: 'Progress: ' + str(root.value)
+                    pos_hint: {'center_y': .5}
+                    font_style: 'Subtitle1'
+                    disabled: sub_bubble_dependent.active
+
+                MDIconButton:
+                    icon: 'minus'
+                    size_hint: None, 1
+                    disabled: sub_bubble_dependent.active
+                    on_release:
+                        root.value = root.value - float(step.text) if root.value - float(step.text) >= 0 else root.value
+                MDIconButton:
+                    icon: 'plus'
+                    size_hint: None, 1
+                    disabled: sub_bubble_dependent.active
+                    on_release:
+                        root.value = root.value + float(step.text) if root.value + float(step.text) <= float(goal.text) else root.value
+
+
+            MDBoxLayout:
+                size_hint: 1, None
+                height: dp(40)
+                spacing: dp(10)
+                MDCheckbox:
+                    id: limit
+                    size_hint: None, 1
+                    width: dp(20)
+                    pos_hint: {'center_y': .5}
+                    active: False
+                MDLabel:
+                    text: 'Set Time Span?'
+                    pos_hint: {'center_y': .5}
+                    font_style: 'Caption'
+                Widget:
+#                MDCheckbox:
+#                    id: daily
+#                    size_hint: None, 1
+#                    width: dp(20)
+#                    pos_hint: {'center_y': .5}
+#                    active: False
+#                MDLabel:
+#                    text: 'Daily?'
+#                    pos_hint: {'center_y': .5}
+#                    font_style: 'Caption'
+
+            MDStackLayout:
+                id: time_pickers
+                size_hint: 1, None
+                adaptive_height: True
+                orientation: 'lr-tb'
+                disabled: not limit.active
+                spacing: dp(10) if 2 * datetime_start.width + dp(20) > self.width else dp(20)
+                DatePicker:
+                    id: datetime_start
+#                    time_only: daily.active
+                    name: 'Start'
+                    datetime: datetime.now()
+                DatePicker:
+                    id: datetime_end
+#                    time_only: daily.active
+                    name: 'End'
+                    datetime: datetime(now.year, now.month, now.day, now.hour, 00)
+
+            MDLabel:
+                text: 'Points To:'
+                pos_hint: {'center_y': .5}
+                font_style: 'Caption'
+                size_hint: 1, None
+                height: dp(30)
+                valign: 'bottom'
+
+            MDSeparator:
+            MDStackLayout:
+                id: points_to
+                adaptive_height: True
+                size_hint_x: 1
+                orientation: 'lr-tb'
+                padding: [dp(0), dp(10), dp(0), dp(10)]
+                spacing: dp(5), dp(3)
+                MDChip:
+                    id: parent_bb_chip
+                    text: root.parent_bubble.text if root.parent_bubble else 'Add Parent'
+                    md_bg_color: root.parent_bubble.color if root.parent_bubble else app.theme_cls.disabled_hint_text_color
+                    icon_right: 'refresh-circle' if root.parent_bubble else 'plus-circle-outline'
+                    line_color: app.theme_cls.primary_color
+                    on_release:
+                        BubbleEditor.select_to = ""
+                        root.choose_bubble()
+                MDSeparator:
+                    id: vse
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: parent_bb_chip.height
+                MDChip:
+                    id: adc
+                    text: 'Add'
+                    icon_right: 'plus-circle-outline'
+                    on_release:
+                        BubbleEditor.select_to = "add_link"
+                        root.choose_bubble()
+            MDSeparator:
+
+
+            MDLabel:
+                text: 'Children:'
+                pos_hint: {'center_y': .5}
+                font_style: 'Caption'
+                size_hint: 1, None
+                height: dp(30)
+                valign: 'bottom'
+
+            MDSeparator:
+            MDStackLayout:
+                id: children_bubbles
+                adaptive_height: True
+                size_hint_x: 1
+                orientation: 'lr-tb'
+                padding: [dp(0), dp(10), dp(0), dp(10)]
+                spacing: dp(5), dp(3)
+                MDChip:
+                    id: add_child
+                    text: 'Add'
+                    icon_right: 'plus-circle-outline'
+                    on_release:
+                        BubbleEditor.select_to = 'add_children'
+                        root.choose_bubble()
+            MDSeparator:
+
+
+#            MDBoxLayout:
+#                size_hint: 1, None
+#                height: dp(40)
+#                spacing: dp(10)
+#                MDCheckbox:
+#                    id: color_picker_checkbox
+#                    size_hint: None, 1
+#                    width: dp(20)
+#                    pos_hint: {'center_y': .5}
+#                    on_active:
+#                        root.add_color_picker()
+#                MDLabel:
+#                    text: 'Pick Colors?'
+#                    pos_hint: {'center_y': .5}
+#                    font_style: 'Caption'
+        Widget:
+            size_hint: 1, None
+            height: dp(40)
+
+
+<SaveContent>:
+    orientation: 'vertical'
+    size_hint: 1, None
+    adaptive_height: True
+    padding: [dp(10)] * 4
+    MDTextField:
+        id: filename
+        text: root.filename
+        hint_text: 'File Name'
+        size_hint: 1, None
+#        on_text: if self.text != root.filename and self.text == '': self.text = root.filename
+
+    MDStackLayout:
+        orientation: 'lr-tb'
+        adaptive_height: True
+        size_hint_x: 1
+        MDBoxLayout:
+            id: location_box
+            adaptive_height: True
+            size_hint_x: None if location.width > (root.width / 2) else 1
+            width: root.width - button_box.width - dp(20)
+            MDTextField:
+                id: location
+                text: root.location
+                hint_text: 'Location'
+                size_hint: 1, None
+                readonly: True
+                on_text: if self.text != root.location: self.text = root.location
+            MDFlatButton:
+                text: 'Browse'
+                ripple_alpha: 0
+                on_press: root.file_manager_open()
+
+        MDBoxLayout:
+            id: button_box
+            adaptive_width: True
+            size_hint_y: None
+            height: location_box.height
+            spacing: "8dp"
+            padding: [dp(10), dp(10), dp(10), dp(10)]
+            MDFlatButton:
+                text: "Save"
+                theme_text_color: "Custom"
+                md_bg_color: self.theme_cls.primary_color
+#                pos_hint: {'bottom': 1}
+                on_release:
+                    root.callback(location.text, filename.text)
+                    if root.dialog: root.dialog.dismiss()
+
+            MDFlatButton:
+                text: "Cancel"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+#                pos_hint: {'bottom': 1}
+                on_release: if root.dialog: root.dialog.dismiss()
+
+
+<DatePicker>:
+    orientation: 'vertical'
+    adaptive_size: True
+    datetime: now
+    MDLabel:
+        text: root.name
+        size_hint: 1, None
+        height: dp(20)
+        valign: 'bottom'
+        font_style: 'Overline' # ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'Subtitle1', 'Subtitle2', 'Body1', 'Body2', 'Button', 'Caption', 'Overline', 'Icon']
+    MDBoxLayout:
+        id: number_box
+        spacing: dp(2)
+        adaptive_size: True
+        NumbersSelector:
+            id: year
+            name: "year"
+            min_max: (now.year-30, now.year+30)
+            number: root.datetime.year
+            width: sp(50)
+        MDLabel:
+            text: '/'
+            size_hint: None, 1
+            width: sp(10)
+            font_size: sp(20)
+            halign: 'center'
+        NumbersSelector:
+            id: month
+            name: "month"
+            min_max: (1, 12)
+            number: root.datetime.month
+            width: sp(30)
+        MDLabel:
+            text: '/'
+            size_hint: None, 1
+            width: sp(10)
+            font_size: sp(20)
+            halign: 'center'
+        NumbersSelector:
+            id: day
+            name: "day"
+            min_max: (1, 31)
+            number: root.datetime.day
+            width: sp(30)
+        Widget:
+            size_hint: None, 1
+            width: dp (30)
+        NumbersSelector:
+            id: hour
+            name: "hour"
+            min_max: (1, 12)
+            number: now.hour if root.datetime.hour <= 12 else root.datetime.hour - 12
+            width: sp(30)
+        MDLabel:
+            text: ':'
+            size_hint: None, 1
+            width: sp(10)
+            font_size: sp(20)
+            halign: 'center'
+        NumbersSelector:
+            id: minute
+            name: "minute"
+            min_max: (0, 59)
+            number: root.datetime.minute
+            width: sp(30)
+
+        MDFlatButton:
+            id: am_pm
+            text: 'AM' if now.hour <= 12 else 'PM'
+            _min_width: dp(25)
+            size_hint: None, .5
+            width: dp(15)
+            pos_hint: {'center_y': .5}
+            on_release:
+                self.text = 'PM' if self.text == 'AM' else 'AM'
+
+
+<NumbersSelector>:
+    adaptive_width: True
+    size_hint: None, None
+    size: 50, 60
+    pos_hint: {'center_y': .5, 'center_x': .5}
+    orientation: 'vertical'
+    canvas.before:
+        Color:
+            rgba: 0.5, 0.5, 0.5, 0.5  # app.theme_cls.bg_darkest
+        RoundedRectangle:
+            pos: self.x + dp(5), self.y
+            size: self.width - dp(10), self.height
+            radius: [10]
+    MDCard:
+        id: decrease
+        size_hint: 1, None
+        height: 20
+#        on_press:  if root.number > root.min_max[0]: root.number -= 1
+        md_bg_color: self.theme_cls.primary_color
+        radius: [dp(20)]*4
+        MDLabel:
+            size_hint: 1, 1
+            halign: 'center'
+            text: str(int(number.text) - 1) if not root.number == root.min_max[0] else ''
+    MDLabel:
+        id: number
+        size_hint: 1, None
+        height: 20
+        halign: 'center'
+        text: str(root.number)
+    MDCard:
+        id: increase
+        size_hint: 1, None
+        height: 20
+        font_size: 3
+#        on_press:  if root.number < root.min_max[1]: root.number += 1
+        md_bg_color: self.theme_cls.primary_color
+        radius: [dp(20)]*4
+        MDLabel:
+            size_hint: 1, None
+            height: 20
+            halign: 'center'
+            text: str(int(number.text or 1) + 1) if not root.number == root.min_max[1] else ''
+

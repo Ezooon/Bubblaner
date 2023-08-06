@@ -1,0 +1,143 @@
+[
+    {
+        "id": 1,
+        "text": "Freelancing Websites",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:18:41",
+        "pos": [
+            1166.0,
+            952.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [],
+        "points_to": []
+    },
+    {
+        "id": 2,
+        "text": "Esam",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:19:19",
+        "pos": [
+            1618.0,
+            974.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [],
+        "points_to": []
+    },
+    {
+        "id": 3,
+        "text": "Siddig",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:19:25",
+        "pos": [
+            724.0,
+            948.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [],
+        "points_to": []
+    },
+    {
+        "id": 4,
+        "text": "Payment Methods",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:20:28",
+        "pos": [
+            1092.0,
+            1442.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [
+            {
+                "id": 5,
+                "text": "Api",
+                "goal": 10,
+                "step": 1,
+                "value": 0,
+                "sub_bubble_dependent": false,
+                "sub_sum": true,
+                "color_platte": [
+                    "Teal",
+                    "Black",
+                    "Teal"
+                ],
+                "onscreen": true,
+                "datetime_start": null,
+                "datetime_end": null,
+                "created_datetime": "2022-11-27 09:20:59",
+                "pos": [
+                    928.0,
+                    1630.0
+                ],
+                "size": [
+                    141.4213562373095,
+                    141.4213562373095
+                ],
+                "children_bubbles": [],
+                "points_to": []
+            }
+        ],
+        "points_to": []
+    }
+]

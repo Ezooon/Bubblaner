@@ -1,0 +1,191 @@
+#: import rgba kivy.utils.rgba
+#: import mtx kivy.metrics
+#: import win kivy.core.window.Window
+
+<MDLabel@DL>:
+    text: '2002'
+    halign: 'center'
+    size_hint: 1, None
+    height: 40
+
+FloatLayout:
+    orientation: 'vertical'
+    canvas.before:
+        Color:
+            rgba: rgba('#000900')
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            
+    MDBoxLayout:
+    	size_hint: None, None
+    	size: 250, 200
+    	pos_hint: {'center_y': .5, 'center_x': .5}
+    	orientation: 'vertical'
+    	padding: 20
+  	  canvas.before:
+ 	       Color:
+	            rgba: rgba('#6f6f6f')
+  	      RoundedRectangle:
+ 	           pos: self.pos
+	            size: self.size
+
+    	MDLabel:
+    		text: 'Pick Date'
+    		halign: 'center'
+    		size_hint: 1, None
+    		height: 40
+
+    	MDBoxLayout:
+    		spacing: 2
+    		ScrollView:
+  			  canvas.before:
+ 	  		     Color:
+	     		       rgba: rgba('#111111')
+  	     		 RoundedRectangle:
+ 	        		   pos: self.pos
+	           		 size: self.size
+				canvas.after:
+ 		 	      Color:
+	 		           rgba: .5,.5,.5,.6
+  			      RoundedRectangle:
+ 		  	         pos: self.x, self.top - 40
+		    	        size: self.width, 40
+		    	        radius: [10, 10, 0, 0]
+
+	 	      	 Color:
+		      	      rgba: .5,.5,.5,.6
+  			      RoundedRectangle:
+ 		  	         pos: self.x, self.y 
+		    	        size: self.width, 40
+		    	        radius: [0, 0, 10, 10]
+
+    			MDGridLayout:
+    				adaptive_height: True
+    				cols: 1
+    				MDLabel:
+    					text: '4'
+    					halign: 'center'
+    					size_hint: 1, None
+    					height: 40
+    				MDLabel:
+    					text: '3'
+    					halign: 'center'
+    					size_hint: 1, None
+    					height: 40
+    				MDLabel:
+    					text: '2'
+    					halign: 'center'
+    					size_hint: 1, None
+    					height: 40
+
+
+    		ScrollView:
+    			scroll_distance: 40
+  			  canvas.before:
+ 	  		     Color:
+	     		       rgba: rgba('#111111')
+  	     		 RoundedRectangle:
+ 	        		   pos: self.pos
+	           		 size: self.size
+				canvas.after:
+ 		 	      Color:
+	 		           rgba: .5,.5,.5,.6
+  			      RoundedRectangle:
+ 		  	         pos: self.x, self.top - 40
+		    	        size: self.width, 40
+		    	        radius: [10, 10, 0, 0]
+
+	 	      	 Color:
+		      	      rgba: .5,.5,.5,.6
+  			      RoundedRectangle:
+ 		  	         pos: self.x, self.y 
+		    	        size: self.width, 40
+		    	        radius: [0, 0, 10, 10]
+
+
+    			MDGridLayout:
+    				adaptive_height: True
+    				cols: 1
+    				MDLabel:
+    					text: '3'
+    					halign: 'center'
+    					size_hint: 1, None
+    					height: 40
+    				MDLabel:
+    					text: '4'
+    					halign: 'center'
+    					size_hint: 1, None
+    					height: 40
+    				MDLabel:
+    					text: '5'
+    					halign: 'center'
+    					size_hint: 1, None
+    					height: 40
+    				MDLabel:
+    					text: '6'
+    					halign: 'center'
+    					size_hint: 1, None
+    					height: 40
+    				MDLabel:
+    					text: '7'
+    					halign: 'center'
+    					size_hint: 1, None
+    					height: 40
+
+
+    		ScrollView:
+  			  canvas.before:
+ 	  		     Color:
+	     		       rgba: rgba('#111111')
+  	     		 RoundedRectangle:
+ 	        		   pos: self.pos
+	           		 size: self.size
+				canvas.after:
+ 		 	      Color:
+	 		           rgba: .5,.5,.5,.6
+  			      RoundedRectangle:
+ 		  	         pos: self.x, self.top - 40
+		    	        size: self.width, 40
+		    	        radius: [10, 10, 0, 0]
+
+	 	      	 Color:
+		      	      rgba: .5,.5,.5,.6
+  			      RoundedRectangle:
+ 		  	         pos: self.x, self.y 
+		    	        size: self.width, 40
+		    	        radius: [0, 0, 10, 10]
+
+    			MDGridLayout:
+    				adaptive_height: True
+    				cols: 1
+    				MDLabel:
+    					text: '2004'
+    					halign: 'center'
+    					size_hint: 1, None
+    					height: 40
+    				MDLabel:
+    					text: '2005'
+    					halign: 'center'
+    					size_hint: 1, None
+    					height: 40
+    				MDLabel:
+    					text: '2002'
+    					halign: 'center'
+    					size_hint: 1, None
+    					height: 40
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	

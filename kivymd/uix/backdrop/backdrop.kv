@@ -1,0 +1,76 @@
+#:import Window kivy.core.window.Window
+
+<MDBackdrop>
+    save: print
+    md_bg_color:
+        root.theme_cls.primary_color \
+        if not root.back_layer_color \
+        else root.back_layer_color
+
+    MDBackdropToolbar:
+        id: toolbar
+        type_height: "small"
+        anchor_title: root.anchor_title
+        title: root.title
+        elevation: 0
+        left_action_items: root.left_action_items
+        right_action_items: root.right_action_items
+        pos_hint: {"top": 1}
+        md_bg_color: 0,0,0,.00000001
+#            root.theme_cls.primary_color \
+#            if not root.back_layer_color \
+#            else root.back_layer_color
+
+    _BackLayer:
+        id: back_layer
+        y: -toolbar.height
+        padding: 0, 0, 0, toolbar.height + dp(10)
+
+    _FrontLayer:
+        id: _front_layer
+        md_bg_color: 0, 0, 0, 0
+        orientation: "vertical"
+#        size_hint_y: None
+        size_hint: None, None
+        width: root.width - dp(10)
+        pos_hint: {"center_x": 0.5}
+        height: root.height - toolbar.height
+        padding: root.padding
+#        on_y: print(self.y)
+        md_bg_color:
+            root.theme_cls.bg_normal \
+            if not root.front_layer_color \
+            else root.front_layer_color
+        radius:
+            [root.radius_left, root.radius_left,
+            root.radius_right, root.radius_right]
+
+        OneLineListItem:
+            id: header_button
+            text: root.header_text
+            divider: None
+            _no_ripple_effect: True
+            on_press: root.open(-Window.height/2.5, True)
+            MDFlatButton:
+                id: create_save_button
+                text: "Save"
+                theme_text_color: "Custom"
+                y: header_button.y
+                right: _front_layer.width - self.width - dp(10)
+                md_bg_color: self.theme_cls.primary_color
+                on_release: root.save() #if not root.bubble else root.edit()
+
+            MDFlatButton:
+                text: "Cancel"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+                y: header_button.y
+                right: _front_layer.width
+                on_release:
+                    root.cancel()
+                    root.close(True)
+
+
+        MDBoxLayout:
+            id: front_layer
+            padding: 0, 0, 0, "10dp"

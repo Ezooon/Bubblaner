@@ -1,0 +1,130 @@
+#:import MapView map_view.MapView
+#:import MBubble bubble.MBubble
+#:import platform kivy.utils.platform
+#:import BubbleEditor dialogs.BubbleEditor
+#:import MColorPicker dialogs.MColorPicker
+#:import Window kivy.core.window.Window
+
+<MapScreen>:
+    canvas.before:
+        Color:
+            rgba: app.theme_cls.primary_dark
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Image:
+        source: root.background # make a default sun/moon rise for the background.
+        allow_stretch: True
+        keep_ratio: False
+        size: root.size
+    MDBackdrop:
+        id: backdrop
+        header_text: 'Edit' if bubble_editor.bubble else "Create"
+        save: bubble_editor.edit
+        cancel: bubble_editor.cancel
+        back_layer_color: self.theme_cls.primary_dark[:3] + ([0] if root.background else [0.8])
+        on_open:
+            if platform in 'windows, macosx, linux':bubble_editor.ids.text.focus = True
+        MDBackdropToolbar:
+            id: toolbar
+            pos_hint: {'top': 1}
+            title: root.filename
+            opposite_colors: True
+            md_bg_color: 0, 0, 0, .00000001
+            use_overflow: True
+            right_action_items: [["content-save-outline", lambda x: root.open_save(root.path, root.filename), "Save", "Save"], ["content-save-edit-outline", root.open_save, "Save As", "Save As"], ["file-multiple-outline", root.open_recent_files, "Open", "Open"], ["brush-variant", root.set_palette, "Colors", "Colors"], ["theme-light-dark", app.change_style, "Theme", "Theme"], ["fullscreen-exit" if Window.fullscreen else 'fullscreen', app.fullscreen, "Fullscreen", "Fullscreen"], ["help-circle-outline", root.help, "Help", "Help"]]
+
+        MDBackdropBackLayer:
+            FloatLayout:
+                MapView:
+                    id:mapview
+                    auto_bring_to_front: True
+                    do_rotation: False
+                    scale: .5
+                   # Middle Point
+                    Widget:
+                        canvas.after:
+                            Color:
+                                rgba: 1, 0, 0, 1
+                            RoundedRectangle:
+                                size: 20, 20
+                                pos: root.middle_point[0]-43, root.middle_point[1]-43
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                spacing: 5
+                adaptive_size: True
+                pos: dp(10), dp(10)
+                MDIconButton:
+                    md_bg_color: 0, 0, 0, .09
+                    icon: 'crosshairs-gps'
+                    size: [40, 40]
+                    pos_hint: {'center_x': .5}
+                    on_release: root.center_bubbles()
+
+                MDIconButton:
+                    md_bg_color: 0, 0, 0, .09
+                    icon: 'magnify-minus-outline'
+                    size: [40, 40]
+                    pos_hint: {'center_x': .5}
+                    on_release: root.zoom_out()
+
+                MDIconButton:
+                    md_bg_color: 0, 0, 0, .09
+                    icon: 'magnify-plus-outline'
+                    size: [40, 40]
+                    pos_hint: {'center_x': .5}
+                    on_release: root.zoom_in()
+
+                MDIconButton:
+                    md_bg_color: 0, 0, 0, .09
+                    icon: 'plus'
+                    on_release:
+                        root.open_bubble_editor(height=0)
+
+            MDFloatingActionButtonSpeedDial:
+                id: quick_settings
+                data: {"New Bubble Direction": f"arrow-down-thin", "Sub/Super-Bubble Size Ratio": 'blank', 'Add Super Bubble': 'google-circles', 'Sub-Bubbles Follow Parents': 'arrow-all'}#, 'Relative Font Size': 'format-size'}
+                pos: root.width - dp(60), dp(10)
+                root_button_anim: True
+                label_text_color: app.theme_cls.text_color
+                bg_color_stack_button: 0,0,0,0
+                color_icon_stack_button: app.theme_cls.text_color
+                callback: root.quick_settings
+                all_set: root.set_quick_settings(self) or print
+                bg_color_root_button: 0,0,0,.3
+                color_icon_root_button: app.theme_cls.text_color
+
+            MDIconButton:
+                id: clipboard
+                pos: root.width - dp(24-100), dp(10)
+                icon: "clipboard-text-outline"
+                md_bg_color: self.theme_cls.primary_color
+                on_release: root.paste()
+
+        MDBackdropFrontLayer:
+            BubbleEditor:
+                id: bubble_editor
+                height: abs(backdrop.ids.header_button.y)
+                pos_hint: {'top': 1}
+                dialog: backdrop
+                callback: root.append_root_bubbles
+
+    MColorPicker:
+        id: color_picker
+        pos_hint: {'center_x': .5}
+        size_hint: None, None
+        width: root.width - dp(20) if self.colors.max_width > root.width - dp(20) else self.colors.max_width + dp(20)
+        y: -self.height - 10
+
+##    Label:
+##        size_hint: None, None
+##        size: self.texture_size[0] + dp(6), dp(30)
+##        pos: dp(100), dp(30)
+##        text: "angle: 90"
+##        canvas.before:
+##            Color:
+##                rgba: app.theme_cls.primary_color
+##            RoundedRectangle:
+##                pos: self.pos
+##                size: self.size

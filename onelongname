@@ -1,0 +1,427 @@
+[
+    {
+        "id": 1,
+        "text": "Freelancing Websites",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:18:41",
+        "pos": [
+            1166.0,
+            952.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [],
+        "points_to": []
+    },
+    {
+        "id": 2,
+        "text": "Esam",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:19:19",
+        "pos": [
+            1618.0,
+            974.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [],
+        "points_to": []
+    },
+    {
+        "id": 3,
+        "text": "Siddig",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:19:25",
+        "pos": [
+            724.0,
+            948.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [],
+        "points_to": []
+    },
+    {
+        "id": 4,
+        "text": "Payment Methods",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:20:28",
+        "pos": [
+            1092.0,
+            1442.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [
+            {
+                "id": 5,
+                "text": "Api",
+                "goal": 10,
+                "step": 1,
+                "value": 0,
+                "sub_bubble_dependent": false,
+                "sub_sum": true,
+                "color_platte": [
+                    "Teal",
+                    "Black",
+                    "Teal"
+                ],
+                "onscreen": true,
+                "datetime_start": null,
+                "datetime_end": null,
+                "created_datetime": "2022-11-27 09:20:59",
+                "pos": [
+                    928.0,
+                    1630.0
+                ],
+                "size": [
+                    141.4213562373095,
+                    141.4213562373095
+                ],
+                "children_bubbles": [],
+                "points_to": []
+            }
+        ],
+        "points_to": []
+    },
+    {
+        "id": 6,
+        "text": "A domain",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:21:27",
+        "pos": [
+            1506.0,
+            1420.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [],
+        "points_to": []
+    },
+    {
+        "id": 7,
+        "text": "In production Managment",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:21:37",
+        "pos": [
+            682.0,
+            1378.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [],
+        "points_to": []
+    },
+    {
+        "id": 8,
+        "text": "Odoo",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:22:12",
+        "pos": [
+            1788.0,
+            1342.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [],
+        "points_to": []
+    },
+    {
+        "id": 9,
+        "text": "Clints",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Teal",
+            "Black",
+            "Teal"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:22:27",
+        "pos": [
+            1160.0,
+            1652.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [],
+        "points_to": []
+    },
+    {
+        "id": 10,
+        "text": "Example Clint",
+        "goal": 10,
+        "step": 1,
+        "value": 0,
+        "sub_bubble_dependent": false,
+        "sub_sum": true,
+        "color_platte": [
+            "Yellow",
+            "Black",
+            "Yellow"
+        ],
+        "onscreen": true,
+        "datetime_start": null,
+        "datetime_end": null,
+        "created_datetime": "2022-11-27 09:23:21",
+        "pos": [
+            1634.0,
+            246.0
+        ],
+        "size": [
+            200.0,
+            200.0
+        ],
+        "children_bubbles": [
+            {
+                "id": 11,
+                "text": "domain",
+                "goal": 10,
+                "step": 1,
+                "value": 0,
+                "sub_bubble_dependent": false,
+                "sub_sum": true,
+                "color_platte": [
+                    "Yellow",
+                    "Black",
+                    "Yellow"
+                ],
+                "onscreen": true,
+                "datetime_start": null,
+                "datetime_end": null,
+                "created_datetime": "2022-11-27 09:24:35",
+                "pos": [
+                    1884.0,
+                    246.0
+                ],
+                "size": [
+                    187.08286933869707,
+                    187.08286933869707
+                ],
+                "children_bubbles": [
+                    {
+                        "id": 12,
+                        "text": "Payment Method",
+                        "goal": 10,
+                        "step": 1,
+                        "value": 0,
+                        "sub_bubble_dependent": false,
+                        "sub_sum": true,
+                        "color_platte": [
+                            "Yellow",
+                            "Black",
+                            "Yellow"
+                        ],
+                        "onscreen": true,
+                        "datetime_start": null,
+                        "datetime_end": null,
+                        "created_datetime": "2022-11-27 09:26:01",
+                        "pos": [
+                            1884.0,
+                            496.0
+                        ],
+                        "size": [
+                            175.0,
+                            175.0
+                        ],
+                        "children_bubbles": [
+                            {
+                                "id": 13,
+                                "text": "website",
+                                "goal": 10,
+                                "step": 1,
+                                "value": 0,
+                                "sub_bubble_dependent": false,
+                                "sub_sum": true,
+                                "color_platte": [
+                                    "Yellow",
+                                    "Black",
+                                    "Yellow"
+                                ],
+                                "onscreen": true,
+                                "datetime_start": null,
+                                "datetime_end": null,
+                                "created_datetime": "2022-11-27 09:26:15",
+                                "pos": [
+                                    1634.0,
+                                    496.0
+                                ],
+                                "size": [
+                                    163.69751067135994,
+                                    163.69751067135994
+                                ],
+                                "children_bubbles": [
+                                    {
+                                        "id": 15,
+                                        "text": "Editable By Clinet",
+                                        "goal": 10,
+                                        "step": 1,
+                                        "value": 0,
+                                        "sub_bubble_dependent": false,
+                                        "sub_sum": true,
+                                        "color_platte": [
+                                            "Yellow",
+                                            "Black",
+                                            "Yellow"
+                                        ],
+                                        "onscreen": true,
+                                        "datetime_start": null,
+                                        "datetime_end": null,
+                                        "created_datetime": "2022-11-27 09:29:30",
+                                        "pos": [
+                                            1634.0,
+                                            246.0
+                                        ],
+                                        "size": [
+                                            153.125,
+                                            153.125
+                                        ],
+                                        "children_bubbles": [],
+                                        "points_to": []
+                                    }
+                                ],
+                                "points_to": []
+                            }
+                        ],
+                        "points_to": []
+                    }
+                ],
+                "points_to": []
+            },
+            {
+                "id": 14,
+                "text": "Odoo Database",
+                "goal": 10,
+                "step": 1,
+                "value": 0,
+                "sub_bubble_dependent": false,
+                "sub_sum": true,
+                "color_platte": [
+                    "Orange",
+                    "Black",
+                    "Yellow"
+                ],
+                "onscreen": true,
+                "datetime_start": null,
+                "datetime_end": null,
+                "created_datetime": "2022-11-27 09:27:48",
+                "pos": [
+                    1254.0,
+                    250.0
+                ],
+                "size": [
+                    187.08286933869707,
+                    187.08286933869707
+                ],
+                "children_bubbles": [],
+                "points_to": []
+            }
+        ],
+        "points_to": []
+    }
+]

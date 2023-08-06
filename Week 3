@@ -1,0 +1,185 @@
+[
+    {
+        "text": "Presentation",
+        "goal": 40,
+        "step": 0,
+        "value": 11.0,
+        "sub_bubble_dependent": true,
+        "color_platte": [
+            "LightBlue",
+            "BlueGray",
+            "LightBlue"
+        ],
+        "onscreen": true,
+        "datetime_limit": "None",
+        "created_datetime": "2022-08-20 10:44:58.066083",
+        "pos": [
+            686.0,
+            191.55555555555543
+        ],
+        "children_bubbles": [
+            {
+                "text": "Collect info",
+                "goal": 10,
+                "step": 1,
+                "value": 9.0,
+                "sub_bubble_dependent": false,
+                "color_platte": [
+                    "LightBlue",
+                    "BlueGray",
+                    "LightBlue"
+                ],
+                "onscreen": true,
+                "datetime_limit": "None",
+                "created_datetime": "2022-08-20 10:44:58.411115",
+                "pos": [
+                    1276.6666666666663,
+                    424.55555555555543
+                ],
+                "children_bubbles": [
+                    {
+                        "text": "Differintatioal Equations",
+                        "goal": 10,
+                        "step": 0,
+                        "value": 7.0,
+                        "sub_bubble_dependent": true,
+                        "color_platte": [
+                            "Yellow",
+                            "Gray",
+                            "DeepOrange"
+                        ],
+                        "onscreen": true,
+                        "datetime_limit": "None",
+                        "created_datetime": "2022-08-20 10:45:47.829750",
+                        "pos": [
+                            932.0,
+                            -277.99999999999955
+                        ],
+                        "children_bubbles": [
+                            {
+                                "text": "Integration",
+                                "goal": 10,
+                                "step": 1,
+                                "value": 7.0,
+                                "sub_bubble_dependent": false,
+                                "color_platte": [
+                                    "Red",
+                                    "Gray",
+                                    "Red"
+                                ],
+                                "onscreen": true,
+                                "datetime_limit": "None",
+                                "created_datetime": "2022-08-20 10:45:00.532227",
+                                "pos": [
+                                    1702.2491458843124,
+                                    -98.0548526021023
+                                ],
+                                "children_bubbles": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "Write the Research",
+                "goal": 10,
+                "step": 1,
+                "value": 2.0,
+                "sub_bubble_dependent": false,
+                "color_platte": [
+                    "LightBlue",
+                    "BlueGray",
+                    "LightBlue"
+                ],
+                "onscreen": true,
+                "datetime_limit": "None",
+                "created_datetime": "2022-08-20 10:44:58.937144",
+                "pos": [
+                    1295.777777777778,
+                    58.55555555555543
+                ],
+                "children_bubbles": []
+            },
+            {
+                "text": "Write the Script",
+                "goal": 10,
+                "step": 1,
+                "value": 0,
+                "sub_bubble_dependent": false,
+                "color_platte": [
+                    "LightBlue",
+                    "BlueGray",
+                    "LightBlue"
+                ],
+                "onscreen": true,
+                "datetime_limit": "None",
+                "created_datetime": "2022-08-20 10:44:59.455166",
+                "pos": [
+                    447.11111111111086,
+                    398.5555555555554
+                ],
+                "children_bubbles": []
+            },
+            {
+                "text": "Practice the Script",
+                "goal": 10,
+                "step": 1,
+                "value": 0,
+                "sub_bubble_dependent": false,
+                "color_platte": [
+                    "LightBlue",
+                    "BlueGray",
+                    "LightBlue"
+                ],
+                "onscreen": true,
+                "datetime_limit": "None",
+                "created_datetime": "2022-08-20 10:44:59.979187",
+                "pos": [
+                    418.66666666666674,
+                    76.99999999999983
+                ],
+                "children_bubbles": []
+            }
+        ]
+    },
+    {
+        "text": "Analytic Geometry",
+        "goal": 10,
+        "step": 1,
+        "value": 7.0,
+        "sub_bubble_dependent": false,
+        "color_platte": [
+            "Pink",
+            "Gray",
+            "Red"
+        ],
+        "onscreen": true,
+        "datetime_limit": "None",
+        "created_datetime": "2022-08-20 10:45:00.881246",
+        "pos": [
+            581.1428571428561,
+            1056.063492063492
+        ],
+        "children_bubbles": []
+    },
+    {
+        "text": "ThermoDynamics",
+        "goal": 10,
+        "step": 1,
+        "value": 5.0,
+        "sub_bubble_dependent": false,
+        "color_platte": [
+            "DeepOrange",
+            "Brown",
+            "DeepOrange"
+        ],
+        "onscreen": true,
+        "datetime_limit": "None",
+        "created_datetime": "2022-08-20 10:45:01.541288",
+        "pos": [
+            134.3809523809523,
+            788.6349206349206
+        ],
+        "children_bubbles": []
+    }
+]

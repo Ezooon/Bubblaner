@@ -1,0 +1,56 @@
+ToDo
+#   Optimize garbage collection.
+##  Put the direction button next to paste button.
+##	Fix the repeat timer.
+##	for mobile add shortcut buttons in the backdrop header line.
+##	Add Option Show Geometric Information on the Bottom.
+##	move the view as you move a bubble colse to the boundaries.
+##   and add an automatic start option.
+##   An option for enlarging sub bubbles accordingly.
+##  Color wheels will have shape for 'Bubble'.
+##  maybe add a collapse all button on the toolbar.
+##   Fixme make the loading screen a bubble with its progress ring.
+##  assign as complete when CheckBox based on (time, progress).
+##  make links objects and show a button when hovering over them to add a bubble in the middle.
+##  Make bubbles with time based progress and alarms (start/pause) instead of (-) and (stop) instead of (+) Buttons.
+##  make the file browsing, on a bubble tree browsing system with different color for different file types.
+##	it's time to add in the COMMENTS!!.
+##  Add Ads as Bubbles.
+###	Remove the addinbeteewn button form the color wheel and but it into bubble buttons.
+
+/Setting List: 
+1. child size ratio. done
+2. help (maybe Link to a YouTube Video).
+3. about (Add to help screen).
+4. children follow parent. (shortcut) done
+5. `sub bubble icon` options: [create parents to children, children to parents?]. (shortcut) done
+7. change children color with parent. (shortcut) Maybe make a shortcut at the colors wheel
+8. ## auto organize.
+9. copy with children or not. (shortcut)
+10.## multiple selection to change things like colors. (shortcut)
+11. new child/parent position, eight options with a random. (shortcut)
+
+
+Done
+@	the default goal should be 1.
+@   don't copy with parent and points to.
+@	remove progress form cancel function, also replace "Value" in bubble editor with "Progress".
+@   make the text filed shows when editing a bubble, don't but it on focus unless on a computer.
+@   Remove Color Picker form BubbleEditor.
+@   hold the copy on memory and past it with a button.
+@	Add pictures to bubbles.
+@   Color wheels will have background for 'Bubble', font size for 'Text', and add in the middle for 'Link'.
+@   pressing twice on a bubble opens bubble editor fully.
+@	Add a background Image.
+@	Add a children section under the points to one on bubble editor, and allow multiple choose with done writen on the bubble geting edited.
+@   Cramming toolbar option into one menu button.
+
+
+
+Fixed:
+#	Fixme Handeling a goal, step, and steps of 0.
+#   Fixme Unbine and remove deleted bubbles links.
+#   Fixme Inhert remove option.
+#   Fixme Incorrect Parent Link Drawing.
+#   Fixme not removing the background before choosing another.
+#   Fixme not opening bubble editor when pressing the header when the text field is showing.
